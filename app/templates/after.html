@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Image Upload with preview</title>
+  <title>Chart</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  <script  src="{{url_for('static',filename="welcome.js")}}"></script>
+  <meta charset="UTF-8">
+ 
+  <link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.css") }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.js")}}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename="style.css") }}">
+</head>
+<body>
+<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+
+<script type="text/javascript">
+
+
+
+Highcharts.chart('container', {
+  chart: {
+    type: 'bar'
+  },
+  title: {
+    text: 'Prediction Based On Deep Learning'
+  },
+  subtitle: {
+    text: 'Source: <a href="https://github.com/pswaldia/Flower_identification">github.com/pswaldia</a>'
+  },
+  xAxis: {
+    categories: ["{{ n1 }}","{{ n2 }}","{{ n3 }}","{{ n4 }}","{{ n5 }}"]
+    // title: {
+    //   text: null
+    // }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Percentage Accuracy',
+      align: 'high'
+    },
+    labels: {
+      overflow: 'justify'
+    }
+  },
+  tooltip: {
+    valueSuffix: '%'
+  },
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'bottom',
+    x: -40,
+    y: 80,
+    floating: true,
+    borderWidth: 1,
+    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+    shadow: true
+  },
+  credits: {
+    enabled: false
+  },
+  series: [{
+    name: 'Accurate %age',
+    data: [{{ p1*100 }},{{ p2*100 }},{{ p3*100 }},{{ p4*100 }},{{ p5*100 }}]
+  }
+  ]
+});
+</script>
+</body>
+</html>

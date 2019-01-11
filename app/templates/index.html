@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Image Upload with preview</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.css") }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.js")}}">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename="style.css") }}">
+
+  
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Flower Image Recognition 
+        <small>Pytorch | Convolutional Neural Net | Flask</small>
+    </h1>
+    <div class="avatar-upload">
+        <div class="avatar-edit">
+          <form action='/' method="POST" id="form1" enctype="multipart/form-data">
+
+            <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" name="file" />
+            <label for="imageUpload"></label>
+       </form>
+        </div>
+
+
+        <div class="avatar-preview">
+            <div id="imagePreview" style="background-image: url(static/1.jpg);">
+            </div>
+        </div>
+    </div>
+      <br>
+        <div>
+          <button type="submit" form="form1" class="btn btn-primary btn-block">Upload</button>
+        </div>
+
+     
+  <br><br>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  <script  src="{{url_for('static',filename="welcome.js")}}"></script>
+
+
+
+
+</body>
+
+</html>
